@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+       <!--引入配置文件路径,注意如果报错找不到property-placeholder元素，需要在在上面beans里加schemaLocation对应schemaLocation:context-->
+       <context:property-placeholder location="classpath*:config.properties"/>
+
+       <!--映射问题，扫不到其他模块的包是因为配置spring的那个模块的pom文件中没有把其他模块的pom作为jar包引进来-->
+       <!--关于扫包问题，如果要某个模块被扫到，那这个模块里的代码所在的包一定要在com.pony下面才行，如common模块应该在com.pony.common中，只要类似这种的com.pony.*-->
+       <context:component-scan base-package="com.pony"/>
+
+       <mvc:annotation-driven/>
+
+       <!-- 处理静态资源,不拦截静态资源 -->
+       <!--关于静态资源不拦截的几种方法：
+           1、在spring文件中加<mvc:resources location="/js/" mapping="/js/**"/>
+           2、在web.xml中加<servlet-mapping>
+                            <servlet-name>default</servlet-name>
+                            <url-pattern>*.js</url-pattern>
+                          </servlet-mapping>
+           3、在web.xml的<url-pattern>/</url-pattern>改成<url-pattern>*.do</url-pattern>这样映射的url结尾都要加.do
+           4、在spring中配置<mvc:default-servlet-handler/>
+       -->
+       <mvc:default-servlet-handler />
+
+       <!--将返回对象自动转成json格式，不需要手动的建立json对象转换后再返回 -->
+       <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+              <property name="supportedMediaTypes">
+                     <list>
+                            <value>text/html;charset=UTF-8</value>
+                     </list>
+              </property>
+       </bean>
+       <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+              <property name="messageConverters">
+                     <list>
+                            <ref bean="mappingJacksonHttpMessageConverter" />
+                     </list>
+              </property>
+       </bean>
+
+       <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
+       <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+              <property name="viewResolvers">
+                     <list><!--freemarker的el表达式也跟下面相关-->
+                            <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+                                   <property name="cache" value="false" />
+                                   <property name="suffix" value=".ftl" />
+                                   <property name="exposeSpringMacroHelpers" value="true" />
+                                   <property name="exposeRequestAttributes" value="true" />
+                                   <property name="exposeSessionAttributes" value="true" />
+                                   <property name="contentType" value="text/html;charset=UTF-8" />
+                            </bean>
+                            <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                                   <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+                                   <property name="suffix" value=".jsp" />
+                            </bean>
+                     </list>
+              </property>
+       </bean>
+
+       <!--引用freemarker配置-->
+       <import resource="spring_freemarker.xml" />
+
+
+</beans>
