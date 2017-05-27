@@ -1,6 +1,8 @@
 package com.pony.ctrl;
 
 import com.pony.common.BaseResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +15,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/test")
 public class TestController {
 
+    private static Logger logger = LoggerFactory.getLogger(TestController.class);
+
     @RequestMapping("/list")
     public String getList(Model model){
+        logger.info("***************** print info log ************************");
+        logger.warn("***************** print warn log ************************");
         model.addAttribute("value", "hahahahha");
-        return "/redirectTest";
+        return "/test/redirecTest";
     }
 
     @RequestMapping("/redirectTest")
