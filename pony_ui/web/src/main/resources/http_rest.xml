@@ -13,12 +13,12 @@
               <property name="connectionManager" ref="pollingConnectionManager" />
        </bean>
 
-       <bean id="httpClient" factory-bean="httpClientBuilder"
+       <bean id="httpRestClient" factory-bean="httpClientBuilder"
              factory-method="build" />
 
        <bean id="clientHttpRequestFactory"
              class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
-              <constructor-arg ref="httpClient" />
+              <constructor-arg ref="httpRestClient" />
               <property name="connectTimeout" value="30000" />
               <property name="readTimeout" value="300000" />
        </bean>
@@ -36,7 +36,7 @@
               </property>
        </bean>
 
-       <bean id="httpRestClient" class="com.pony.common.http.HttpClient">
+       <bean id="httpClient" class="com.pony.common.http.HttpClient">
               <property name="restTemplate" ref="restTemplate"/>
        </bean>
 

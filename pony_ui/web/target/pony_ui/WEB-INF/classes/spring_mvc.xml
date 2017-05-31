@@ -63,5 +63,5 @@
        <!--引用freemarker配置-->
        <import resource="spring_freemarker.xml" />
 
-
+       <import resource="http_rest.xml" />
 </beans>

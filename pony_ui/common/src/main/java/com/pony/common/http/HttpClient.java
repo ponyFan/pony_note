@@ -19,10 +19,9 @@ public class HttpClient {
 
     private static Logger logger = LoggerFactory.getLogger(HttpClient.class);
 
-    @Value("pony.monitor.url")
+    @Value("${pony.monitor.url}")
     private String hostUrl;
 
-    @Resource
     private RestTemplate restTemplate;
 
     public void setRestTemplate(RestTemplate restTemplate) {
