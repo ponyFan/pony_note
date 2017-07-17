@@ -28,4 +28,11 @@ public class TestController {
         return httpClient.defaultPost("/test/list", null, BaseResponse.class);
     }
 
+
+    @RequestMapping("/list")
+    public String list(Model model){
+        model.addAttribute("value", "哈哈");
+        return "/test/redirecTest";
+    }
+
 }
