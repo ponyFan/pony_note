@@ -14,11 +14,34 @@
 
 <div ng-controller = "parentCtrl">
     <p><input  type="text" ng-model = "value1">请输入内容</p>
-    <h1>您输入的内容为：{{value1}}</h1>
+    <h1>您输入的内容为：{{value2}}</h1>
     <div ng-controller = "childCtrl">
         <button ng-click = "gerParentValue()">按钮</button>
     </div>
     <h5>{{value3}}</h5>
+</div>
+
+
+<div  ng-controller="paretnCtrl1">
+    <input type="text" ng-model="name" />
+    <div ng-controller="childCtrl1">
+        {{name}}
+        <button ng-click="setName()">set name to jack jack jack</button>
+    </div>
+    <div ng-controller="childCtrl2">
+        {{name}}
+        <button ng-click="setName()">set name to tom tom tom</button>
+    </div>
+</div>
+
+
+<div ng-controller="childCtrl3">
+    {{name}}
+    <button ng-click="setName()">set name to jack jack jack</button>
+</div>
+<div ng-controller="childCtrl4">
+    {{name}}
+    <button ng-click="setName()">set name to tom tom tom</button>
 </div>
 </body>
 <script>
@@ -33,17 +56,79 @@
     })
 
 
-    /*子类继承父类的属性，但是父类不能使用子类的*/
+    /*子类继承父类的属性，但是父类不能使用子类的
+    * 子类只能使用子类作用域中的变量和属性，
+    * 可以获取父类的属性,但是不能修改父类的属性，如果改了作用域中一个和父类中一样的属性，那该属性也只是子类作用域中的，并不是父类中的那个属性，只是创建了一个名字相同的属性而已
+    * */
     app.controller("parentCtrl", function($scope){
         $scope.value2 = "嘿嘿";
         $scope.value3 = "";
-        $scope.gerParentValue = function(){
-            $scope.value3 = $scope.value1 + $scope.value2;
-        }
     })
 
     app.controller("childCtrl", function($scope){
-
+        $scope.value2 = "哈哈";
+        $scope.gerParentValue = function(){
+            alert($scope.value1 + $scope.value2);
+        }
     })
+
+
+    /*父类中的属性子类是都公用的，如果是通过父类controller修改的属性，都会作用在子类中
+    * 但是如果是子类中同样修改了各自作用域中一个和父类属性一样的名字，name这个只会作用在自己的作用域中，其他作用域中并不会改变
+    * 因为在自己的作用域中相当于创建了一个相同名称的属性，该属性只作用于当前的类
+    * */
+    app.controller('paretnCtrl1', function($scope,$timeout) {
+        $scope.name = "Evankaka";
+    });
+    app.controller('childCtrl1', function($scope,$timeout) {
+        $scope.setName = function() {
+            $scope.name = "set name to jack jack jack";
+        };
+    });
+    app.controller('childCtrl2', function($scope,$timeout) {
+        $scope.setName = function() {
+            $scope.name = "set name to tom tom tom";
+        };
+    });
+
+    /*数据共享，全局
+    * 注意：value中的名称要和controller中参数名一致
+    * */
+    app.value("data", {"name":"哈哈哈"})
+    app.controller('childCtrl3', function($scope,data) {
+        $scope.name = data.name;
+        $scope.setName = function() {
+            $scope.name = "set name to jack jack jack";
+        };
+    });
+    app.controller('childCtrl4', function($scope,data) {
+        $scope.name = data.name;
+        $scope.setName = function () {
+            $scope.name = "set name to tom tom tom";
+        }
+    });
+
+    /*数据共享，service注入
+    * 注意：注入的service的名称要和controller中参数名称一致
+    * */
+    app.factory("myService", function(){
+        var service = {
+            name : "注入实例"
+        }
+        return service;
+    });
+
+    app.controller('childCtrl3', function($scope,myService) {
+        $scope.name = myService.name;
+        $scope.setName = function() {
+            $scope.name = "set name to jack jack jack";
+        };
+    });
+    app.controller('childCtrl4', function($scope,myService) {
+        $scope.name = myService.name;
+        $scope.setName = function () {
+            $scope.name = "set name to tom tom tom";
+        }
+    });
 </script>
 </html>
