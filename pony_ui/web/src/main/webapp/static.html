@@ -26,7 +26,7 @@
         }
     });
 
-    app.controller("myController", function($scope, myValue){
+    app.controller("myController", function($scope, myValue, myConstant){
         var   limit = $scope.paginationConf.itemsPerPage;
         var   pageIndex  = $scope.paginationConf.currentPage;
         console.log(limit);
@@ -34,6 +34,9 @@
 
         console.log(myValue.currentPage);
         console.log(myValue.itemsPerPage);
+
+        console.log(myConstant.currentPage);
+        console.log(myConstant.itemsPerPage);
 
     });
 
@@ -45,6 +48,14 @@
     });
 
     /*constant定义*/
-    app.constant("myCon")
+    app.constant("myConstant", {
+        "currentPage" : 3,
+        "itemsPerPage" : 17
+    })
+
+    /*config中不能使用value会报错，只能用constant*/
+    app.config(function(myConstant){
+
+    })
 </script>
 </html>
