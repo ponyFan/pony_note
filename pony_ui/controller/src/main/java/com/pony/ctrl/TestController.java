@@ -2,6 +2,7 @@ package com.pony.ctrl;
 
 import com.pony.common.BaseResponse;
 import com.pony.common.http.HttpClient;
+import freemarker.template.utility.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class TestController {
 
     @RequestMapping("/redirectTest")
     @ResponseBody
-    public BaseResponse redirect(String value){
+    public BaseResponse redirect(){
         return httpClient.defaultPost("/test/list", null, BaseResponse.class);
     }
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript"  src="static/js/angular.js"></script>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    <button ng-click="getPrivate()">按钮一</button>
+    <button ng-click="getPublic()">按钮二</button>
+</div>
+</body>
+<script>
+    /*三种注入方式：service、factory、provider
+    * service注入是单例的，只实例化一次
+    * */
+    /*1、service*/
+    var app = angular.module("myApp", []);
+    app.service("myService", function(){
+        console.log('instance myFactory');
+        var privateValue = "I am Private";
+        this.variable = "This is public";
+        this.getPrivate = function() {
+            return privateValue;
+        };
+    });
+
+    /*使用DI添加Service的三种方法*/
+    /*1、内联*/
+    app.controller("myController", ["$scope", "dateFilter", function($scope, dateFilter){
+
+    }])
+
+    /*2、$inject注解*/
+    var myController = function($scope, dateFilter){}
+    myController.$inject = [$scope, dateFilter]
+    app.controller("myController", myController);
+
+    /*3、隐式注解*/
+    app.controller("myController", function($scope, dateFilter){})
+
+    /*service使用实例*/
+    app.controller("myCtrl", function($scope, myService){
+        $scope.getPrivate = function(){
+            alert(myService.getPrivate());
+        }
+
+        $scope.getPublic = function(){
+            alert(myService.variable);
+        }
+    })
+
+    /*factory实例,也只实例化一次*/
+    app.factory("myFactory", function(){
+        console.log('instance myFactory');
+        var factory = {};
+        var privateValue = "I am Private";
+        factory.variable = "This is public";
+        factory.getPrivate = function() {
+            return privateValue;
+        };
+        return factory;/*一定要return*/
+    })
+
+    app.controller("myCtrl", function($scope, myFactory){
+        $scope.getPrivate = function(){
+            alert(myFactory.getPrivate());
+        }
+
+        $scope.getPublic = function(){
+            alert(myFactory.variable);
+        }
+    })
+
+    /*provider实例*/
+    app.provider("provid", function(){
+        var fun = function (name) {
+            alert(name)
+        }
+
+        this.$get = function () {
+            return fun;
+        }
+    })
+</script>
+</html>

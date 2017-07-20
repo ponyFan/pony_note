@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head ng-app="app">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript"  src="static/js/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="parentCtr">
+    <div ng-controller="childCtr1">childCtr1 name :
+        <input ng-model="name" type="text" ng-change="change(name)" />
+    </div>
+    <div ng-controller="childCtr2">from childCtr1 name:
+        <input ng-model="ctr1Name" />
+    </div>
+</div>
+</body>
+<script>
+    /*controller之间相互通信
+     * $emit只能向parent controller传递event与data, 所以只有父类才能监听到该事件
+     * $broadcast只能向child controller传递event与data， 只有子类才能监听到该事件
+     * $on用于接收event与data
+     * */
+    var app = angular.module("myApp", []);
+
+    app.controller("parentCtr", function($scope){
+        $scope.$on("change", function(event, param){/*监听子类的change*/
+            /*获取子类事件发生后产生的值，再将值广播给所有子类*/
+            $scope.$broadcast("childChange", param);
+        })
+    });
+
+    app.controller("childCtr1", function($scope){
+        $scope.change = function(name){
+            /*将信息上报给父类*/
+            $scope.$emit("change", name);
+        };
+    }).controller("childCtr2", function($scope){
+        $scope.$on("childChange", function(event, param){
+            $scope.ctr1Name = param;
+        })
+    })
+</script>
+</html>

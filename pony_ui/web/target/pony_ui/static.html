@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript"  src="static/js/angular.js"></script>
+</head>
+<body ng-controller="myController">
+
+</body>
+<script>
+    /*全局变量设置
+    * 1、通过var 直接定义global variable，相当于直接用js
+    * 2、用angularjs rootscope来设置全局变量 。
+    * 3、用angularjs value来设置全局变量 。
+    * 4、用angularjs constant来设置全局变量 。
+    * 5、定义服务传值
+    * */
+
+    var app = angular.module("myApp", []);
+    /*rootscope定义*/
+    app.run(function($rootScope){
+        $rootScope.paginationConf = {
+            currentPage : 1, // 分页开始
+            itemsPerPage : 15 // 分页每页显示条数
+        }
+    });
+
+    app.controller("myController", function($scope, myValue, myConstant){
+        var   limit = $scope.paginationConf.itemsPerPage;
+        var   pageIndex  = $scope.paginationConf.currentPage;
+        console.log(limit);
+        console.log(pageIndex);
+
+        console.log(myValue.currentPage);
+        console.log(myValue.itemsPerPage);
+
+        console.log(myConstant.currentPage);
+        console.log(myConstant.itemsPerPage);
+
+    });
+
+
+    /*value定义*/
+    app.value("myValue", {
+        "currentPage" : 2,
+        "itemsPerPage" : 16
+    });
+
+    /*constant定义*/
+    app.constant("myConstant", {
+        "currentPage" : 3,
+        "itemsPerPage" : 17
+    })
+
+    /*config中不能使用value会报错，只能用constant*/
+    app.config(function(myConstant){
+
+    })
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angular-bind-html-compile">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript"  src="static/js/jquery.js"></script>
+    <script type="text/javascript"  src="static/js/angular.js"></script>
+</head>
+<body ng-controller="aa">
+    <div bind-html-compile="htmlDom" ></div>
+    <div htmlDom id="a" >
+    </div>
+</body>
+<script>
+    var module = angular.module('angular-bind-html-compile', []);
+    module.directive('bindHtmlCompile', ['$compile',
+        function($compile) {
+            return {
+                restrict: 'EA',
+                link: function(scope, element, attrs) {
+                    scope.$watch(function() {
+                                return scope.$eval(attrs.bindHtmlCompile);
+                                /*return $("#a").html();*/
+                            },
+                            function(value) {
+                                element.html(value);
+                                $compile(element.contents())(scope);
+                            });
+                }
+            };
+        }]);
+
+    module.controller("aa", ["$sce", function($sce) {
+        var vm = this;
+        var html = $("#a").html();
+        vm.html = $sce.trustAsHtml(html);
+        return vm;
+    }]);
+    module.controller("aa", function($scope){
+        $scope.test = "wwwww";
+        $scope.htmlDom = "<div ng-click='testFun();'>{{test}}</div>";
+        /*setInterval(function () {
+            $("#a").append("<a href='sss'>{{test}}</a>")
+        }, 5000);//每隔5秒查询一次后台*/
+        $scope.testFun = function(){
+            $("#a").append("<a href='sss'>{{test}}</a>");
+            /*$scope.htmlDom += "<div ng-click='testFun();'>{{test}}</div>";*/
+        }
+    })
+</script>
+</html>

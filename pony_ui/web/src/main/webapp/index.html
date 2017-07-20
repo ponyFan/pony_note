@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>AngularJS入门学习</title>
+    <script type="text/javascript"  src="static/js/jquery.js"></script>
     <script type="text/javascript"  src="static/js/angular.min.js"></script>
 </head>
 <body ng-controller="myController">
@@ -43,6 +44,16 @@
     {{name}}
     <button ng-click="setName()">set name to tom tom tom</button>
 </div>
+
+<table ng-controller="testController" border="1">
+    <tr ng-repeat="x in list">
+        <td>{{x.id}}</td>
+        <td>{{x.configKey}}</td>
+        <td>{{x.configValue}}</td>
+        <td>{{x.description}}</td>
+        <td>{{x.createTime}}</td>
+    </tr>
+</table>
 </body>
 <script>
     var app = angular.module("myApp", []);
@@ -130,5 +141,21 @@
             $scope.name = "set name to tom tom tom";
         }
     });
+
+
+    app.controller("testController", function($scope, $http){
+        $scope.list = [];
+        $http.get("/test/redirectTest").then(function(rep){
+            $scope.list = rep.data.data;
+        })
+    })
+    /*$(document).ready(function(){
+        setInterval(function () {
+            debugger
+            $.get("/test/redirectTest",function(data){
+                console.log(data.data);
+            });
+        }, 5000);//每隔5秒查询一次后台
+    })*/
 </script>
 </html>
