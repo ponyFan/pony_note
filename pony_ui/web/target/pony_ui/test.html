@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angular-bind-html-compile">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript"  src="static/js/jquery.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript"  src="static/js/angular.js"></script>
+</head>
+<body ng-controller="aa">
+<!--<div ng-click='testFun();'>{{test}}</div>
+    <div bind-html-compile id="a"></div>
+</body>-->
+
+<button id="sample_editable_1_delete" class="btn red" style="margin-left: 10px;" ng-click="add()">
+    删除 <i class="icon-minus"></i>
+</button>
+
+<div id="create_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 id="myModalLabel3">创建/修改用例</h3>
+    </div>
+    <div class="modal-body" bind-html-compile id="a">
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" ng-click="mis()" aria-hidden="true">关闭</button>
+        <button class="btn green btn-primary" onclick="saveProductCase();">保存</button>
+    </div>
+</div>
+<script>
+    var module = angular.module('angular-bind-html-compile', []);
+    module.directive('bindHtmlCompile', ['$compile',
+        function($compile) {
+            return {
+                restrict: 'EA',
+                link: function(scope, element, attrs) {
+                    scope.$watch(function() {
+                                /*return scope.$eval(attrs.bindHtmlCompile);*//*监听angular对象*/
+                                return $("#a").html();/*监听dom*/
+                            },
+                            function(value) {
+                                element.html(value);
+                                $compile(element.contents())(scope);
+                            });
+                }
+            };
+        }]
+    );
+
+    module.controller("aa", function($scope, $interval, $http){
+        $scope.test = "wwwww";
+        $interval(function () {
+            $("#a").append("<a href='sss'>{{test}}</a>")
+        }, 5000);//每隔5秒查询一次后台
+        $scope.testFun = function(){
+            $("#a").append("<a href='sss'>{{test}}</a>");/*监听dom*/
+            /*$scope.htmlDom += "<div ng-click='testFun();'>{{test}}</div>";监听angular对象*/
+            console.log(11111);
+
+        }
+
+        $scope.add = function(){
+            $("#a").empty();
+            $http.get("/test/modal").then(function(rep){
+                $scope.list = rep.data;
+                $("#a").append(rep.data);
+            });
+            $("#create_modal").modal();
+        }
+
+    })
+</script>
+</html>

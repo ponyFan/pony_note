@@ -36,4 +36,9 @@ public class TestController {
         return "/test/redirecTest";
     }
 
+    @RequestMapping("/modal")
+    public String modal(){
+        return "/test/testmodal";
+    }
+
 }
