@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-06-01T07:44:02.622Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" version="20.6.2" etag="HshFm8oFlO92DaLcnngi" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-01T07:54:34.042Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" version="20.6.2" etag="enNgl8bt0ckdQ9EJpNCK" type="github">
   <diagram id="Re0tyrblCZsP9Vm3o1qq" name="第 1 页">
-    <mxGraphModel dx="885" dy="404" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1011" dy="462" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -53,13 +53,16 @@
           <mxGeometry x="410" y="170" width="84" height="350" as="geometry" />
         </mxCell>
         <mxCell id="pkjz_35HItkrrQwIqdnt-89" value="State detection of sub1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="521" y="170" width="109" height="350" as="geometry" />
+          <mxGeometry x="530" y="170" width="100" height="350" as="geometry" />
         </mxCell>
-        <mxCell id="pkjz_35HItkrrQwIqdnt-103" value="2:&amp;nbsp; flat traversal of sub2 and entering is true" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;" vertex="1" parent="pkjz_35HItkrrQwIqdnt-89">
-          <mxGeometry x="-71" y="100" width="180" height="20" as="geometry" />
+        <mxCell id="pkjz_35HItkrrQwIqdnt-111" value="5: flat traversal of sub2 and entering is false" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;" vertex="1" parent="pkjz_35HItkrrQwIqdnt-89">
+          <mxGeometry x="-80" y="180" width="180" height="20" as="geometry" />
         </mxCell>
         <mxCell id="pkjz_35HItkrrQwIqdnt-90" value="State Backend" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="720" y="170" width="70" height="350" as="geometry" />
+          <mxGeometry x="730" y="170" width="70" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="pkjz_35HItkrrQwIqdnt-105" value="3: counter +1, him event +1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;" vertex="1" parent="pkjz_35HItkrrQwIqdnt-90">
+          <mxGeometry x="-70" y="130" width="120" height="20" as="geometry" />
         </mxCell>
         <mxCell id="pkjz_35HItkrrQwIqdnt-92" value="" style="shape=umlLifeline;participant=umlEntity;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;fontSize=11;size=30;" vertex="1" parent="1">
           <mxGeometry x="350" y="170" width="30" height="350" as="geometry" />
@@ -71,7 +74,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="pkjz_35HItkrrQwIqdnt-96" value="State detection of sub2" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="610" y="170" width="70" height="350" as="geometry" />
+          <mxGeometry x="630" y="170" width="70" height="350" as="geometry" />
         </mxCell>
         <mxCell id="pkjz_35HItkrrQwIqdnt-97" value="" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=11;" edge="1" parent="1" source="pkjz_35HItkrrQwIqdnt-88" target="pkjz_35HItkrrQwIqdnt-89">
           <mxGeometry width="80" relative="1" as="geometry">
@@ -95,8 +98,38 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="pkjz_35HItkrrQwIqdnt-101" value="2:&amp;nbsp; falt traversal of sub1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;" vertex="1" parent="1">
+        <mxCell id="pkjz_35HItkrrQwIqdnt-101" value="2:&amp;nbsp; flat traversal of sub1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;" vertex="1" parent="1">
           <mxGeometry x="450" y="240" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pkjz_35HItkrrQwIqdnt-103" value="2:&amp;nbsp; flat traversal of sub2 and entering is true" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="450" y="270" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pkjz_35HItkrrQwIqdnt-104" value="" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=8;" edge="1" parent="1" source="pkjz_35HItkrrQwIqdnt-96" target="pkjz_35HItkrrQwIqdnt-90">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="700" y="310" as="sourcePoint" />
+            <mxPoint x="770" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="730" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pkjz_35HItkrrQwIqdnt-108" value="" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=8;" edge="1" parent="1" source="pkjz_35HItkrrQwIqdnt-92" target="pkjz_35HItkrrQwIqdnt-88">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="361" y="360" as="sourcePoint" />
+            <mxPoint x="441" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pkjz_35HItkrrQwIqdnt-109" value="4: flatten m2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="361" y="320" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pkjz_35HItkrrQwIqdnt-110" value="" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=8;" edge="1" parent="1" source="pkjz_35HItkrrQwIqdnt-88" target="pkjz_35HItkrrQwIqdnt-96">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="461" y="380" as="sourcePoint" />
+            <mxPoint x="541" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="580" y="370" />
+            </Array>
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
