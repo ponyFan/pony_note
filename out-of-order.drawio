@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-06-02T05:45:20.520Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="Fg3RgzxbT-JNTxqmBqXY" version="20.6.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-02T05:47:05.764Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="w5trEehFrLiCz2v4aDMt" version="20.6.2" type="github">
   <diagram id="Re0tyrblCZsP9Vm3o1qq" name="第 1 页">
-    <mxGraphModel dx="1349" dy="670" grid="1" gridSize="11" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1349" dy="670" grid="0" gridSize="11" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -593,7 +593,7 @@
             <mxPoint x="804" y="1247.38" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EDN6SahsGzkHJHIuNWbJ-155" value="m1: enter = true, traversal +1&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, not startup&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m3: enter = false, not startup&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="EDN6SahsGzkHJHIuNWbJ-155" value="m1: enter = true, traversal +1&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, not start&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m3: enter = false, not start&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="848" y="1220" width="173" height="55" as="geometry" />
         </mxCell>
         <mxCell id="EDN6SahsGzkHJHIuNWbJ-158" value="" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
@@ -602,8 +602,8 @@
             <mxPoint x="804" y="1349.21" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EDN6SahsGzkHJHIuNWbJ-160" value="m1: enter = true, traversal +1&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, not startup&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="847" y="1333.57" width="176" height="44" as="geometry" />
+        <mxCell id="EDN6SahsGzkHJHIuNWbJ-160" value="m1: enter = true, traversal +1&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, not start&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="849" y="1335.57" width="173" height="41" as="geometry" />
         </mxCell>
         <mxCell id="EDN6SahsGzkHJHIuNWbJ-161" value="" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
           <mxGeometry width="80" relative="1" as="geometry">
@@ -611,8 +611,8 @@
             <mxPoint x="806" y="1454.64" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EDN6SahsGzkHJHIuNWbJ-163" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m1: enter = false, startup, traversal +1&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, not startup&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m3: enter = false, not startup&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="841" y="1433" width="231" height="55" as="geometry" />
+        <mxCell id="EDN6SahsGzkHJHIuNWbJ-163" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m1: enter = false, start, traversal +1&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, not start&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m3: enter = false, not start&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="848" y="1434" width="207" height="55" as="geometry" />
         </mxCell>
         <mxCell id="EDN6SahsGzkHJHIuNWbJ-164" value="" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
           <mxGeometry width="80" relative="1" as="geometry">
@@ -620,7 +620,7 @@
             <mxPoint x="806" y="1553.6400000000003" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EDN6SahsGzkHJHIuNWbJ-166" value="m1: enter = true, traversal +1&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, not startup&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m3: enter = false, not startup&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="EDN6SahsGzkHJHIuNWbJ-166" value="m1: enter = true, traversal +1&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, not start&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m3: enter = false, not start&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="847" y="1535.43" width="173" height="55" as="geometry" />
         </mxCell>
         <mxCell id="EDN6SahsGzkHJHIuNWbJ-167" value="" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
@@ -629,8 +629,8 @@
             <mxPoint x="806" y="1652.9000000000003" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EDN6SahsGzkHJHIuNWbJ-169" value="&lt;span style=&quot;background-color: initial; text-align: left;&quot;&gt;m2: enter = false, startup, traversal +1&lt;/span&gt;&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="841" y="1639" width="231" height="44" as="geometry" />
+        <mxCell id="EDN6SahsGzkHJHIuNWbJ-169" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, start, traversal +1&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="847" y="1644" width="207" height="41" as="geometry" />
         </mxCell>
         <mxCell id="EDN6SahsGzkHJHIuNWbJ-170" value="" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;" edge="1" parent="1">
           <mxGeometry width="80" relative="1" as="geometry">
@@ -638,8 +638,8 @@
             <mxPoint x="806" y="1759.6400000000006" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EDN6SahsGzkHJHIuNWbJ-172" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m1: enter = true, traversal +1&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, not startup&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m(n): enter = true, traversal +1&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="843" y="1745.98" width="187" height="55" as="geometry" />
+        <mxCell id="EDN6SahsGzkHJHIuNWbJ-172" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m1: enter = true, traversal +1&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m2: enter = false, not start&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;m(n): enter = true, traversal +1&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="846" y="1745.98" width="181" height="55" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
